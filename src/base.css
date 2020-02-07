@@ -3,6 +3,12 @@
 html {
     box-sizing: border-box;
     width: 100%;
+    --primary: #3498db;
+    --secondary: #f06449;
+
+    --platina: #ede6e3;
+    --rich-black: #080f0f;
+
 }
 root {
     width: 100%;

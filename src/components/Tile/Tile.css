@@ -5,14 +5,22 @@
     height: auto;
     min-width: 400px;
     min-height: 300px;
+    padding: 10% 5% 5%;
+    margin-bottom: 10%;
+    background-color: var(--secondary);
+    color: var(--rich-black);
+    -webkit-box-shadow: 11px 11px 0px 1px var(--primary);
+    -moz-box-shadow: 11px 11px 0px 1px var(--primary);
+    box-shadow: 11px 11px 0px 1px var(--rich-black);
 }
 
 h2 {
-    font-size: calc(0.5rem + 2.5vmin);
+    font-size: calc(0.8rem + 3vmin);
 }
 p {
-    
+    font-size: calc(0.4rem + 2.5vmin);
 }
 img {
     width: 100%;
+    box-shadow: 6px 6px 0px 1px var(--platina);
 }

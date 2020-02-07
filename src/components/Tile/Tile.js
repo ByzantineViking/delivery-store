@@ -7,17 +7,17 @@ const Tile = (props) => {
         <div className='tile'>
             <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
             <h2>{props.restaurant.name}</h2>
-            <div className='tile-body'>
+            <p>
                 {props.restaurant.description}
-            </div>
+            </p>
             <Button
                 className='info-button'
-                body=''
+                body='🤔This?'
                 alt='consider'
             />
             <Button
                 className='wishlist-button'
-                body='🚴‍♂️'
+                body='🚴‍♂️Order'
                 alt='order'
             />
         </div>

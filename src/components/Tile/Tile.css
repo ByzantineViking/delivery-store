@@ -1,0 +1,15 @@
+
+
+.tile {
+    width: 100%;
+    height: auto;
+    min-width: 400px;
+    min-height: 300px;
+}
+
+h2 {
+    font-size: calc(0.5rem + 2.5vmin);
+}
+p {
+    
+}

@@ -1,8 +1,9 @@
 
 
-.tile-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
+.tile-column {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 10%;
+    width: 100%;
+    max-width: 400px;
 }

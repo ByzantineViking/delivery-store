@@ -2,5 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import restaurantData from './resources/restaurants.json'
+
+
+ReactDOM.render(<App restaurants={restaurantData}/>, document.getElementById('root'))
 

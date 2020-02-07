@@ -1,20 +1,24 @@
 import React from 'react'
 import './Tile.css'
-import '../Button/Button.js'
+import Button from '../Button/Button.js'
 const Tile = (props) => {
+    console.log(props.restaurant)
     return (
         <div className='tile'>
-            <img className='tile-image' />
-            <h2>Bobs burgers</h2>
+            <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
+            <h2>{props.restaurant.name}</h2>
             <div className='tile-body'>
-                The best burgers in town
+                {props.restaurant.description}
             </div>
             <Button
                 className='info-button'
-                text='Hmm?'
+                body=''
+                alt='consider'
             />
             <Button
                 className='wishlist-button'
+                body='🚴‍♂️'
+                alt='order'
             />
         </div>
     )

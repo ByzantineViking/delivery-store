@@ -2,6 +2,7 @@ A webstore front-end for food delivery from multiple restaurants. Focus on being
 
 ## Project Structure
 Project Root
+
 ├── src
     ├── components              // Packaged with stylesheets and tests.
         ├── Tile
@@ -9,8 +10,6 @@ Project Root
             ├── Tile.css
             └── Tile.test.js
         └── ...
-
-     
     ├── resources
         └── restaurants.json    // Data about 50 restaurants
     ├── App.js

@@ -31,15 +31,17 @@ const TileList = (props) => {
                             buttonAction={() => props.setList2Visibility(false)}
                         />}
                 </div>
-                {Object.entries(props.restaurants.restaurants).filter( (restaurant) =>
-                    !props.filter || restaurant[1].name.includes(props.filter) || props.filter.includes(restaurant[1].tags[0]) || props.filter.includes(restaurant[1].tags[1])
-                ).map(([key, val]) =>
-                    <Tile
-                        key={key}
-                        restaurant={val}
-                        setWish={props.setWish}
-                    />
-                )}
+                {Object.entries(props.restaurants.restaurants)
+                    .filter( (restaurant) =>
+                        !props.filter || restaurant[1].name.includes(props.filter) || props.filter.includes(restaurant[1].tags[0]) || props.filter.includes(restaurant[1].tags[1]))
+                    .sort((a,b) => props.alphabetical ? ((a[1].name > b[1].name) ? 1 : -1) : ((a[1].name < b[1].name) ? 1 : -1))
+                    .map(([key, val]) =>
+                        <Tile
+                            key={key}
+                            restaurant={val}
+                            setWish={props.setWish}
+                        />
+                    )}
             </div>
     )
 }

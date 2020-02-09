@@ -16,7 +16,7 @@ Project Root
     ├── App.js
     ├── App.css
     ├── App.test.js
-    ├── base.css
+    ├── base.css                // CSS styles set to inherit from the top
     ├── index.js
     └──setupTests.js
 ├── .eslintrc.js                // Javascript style checking

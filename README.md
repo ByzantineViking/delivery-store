@@ -1,6 +1,7 @@
 A webstore front-end for food delivery from multiple restaurants. Focus on being able to compare different kinds of restaurants with ease, and being able to save promising restaurants before making a decision between them.
 
 ## Project Structure
+```
 Project Root
 ├── src
     ├── components              // Packaged with stylesheets and tests.
@@ -9,8 +10,6 @@ Project Root
             ├── Tile.css
             └── Tile.test.js
         └── ...
-
-     
     ├── resources
         └── restaurants.json    // Data about 50 restaurants
     ├── App.js
@@ -22,7 +21,7 @@ Project Root
 ├── .eslintrc.js                // Javascript style checking
 ├── .stylelintrc.json           // CSS style checking
 └── ...
-        
+```
 
 ## Available Scripts
 

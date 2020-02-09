@@ -3,8 +3,8 @@ import './EmojiButton.css'
 
 const EmojiButton = (props) => {
     return(
-        <div className={props.className} aria-label={props.ariaLabel}>
-            <input type="button" className="emoji-button" onClick={() => console.log('moi')} value={props.body}></input>
+        <div className={props.className} alt={props.alt}>
+            <input type="button" className="emoji-button" onClick={() => props.buttonAction()} value={props.body}></input>
         </div>
     )
 }

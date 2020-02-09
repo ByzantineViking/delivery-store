@@ -14,7 +14,7 @@
     color: var(--rich-black);
     -webkit-box-shadow: 11px 11px 0px 1px var(--rich-black);
     -moz-box-shadow: 11px 11px 0px 1px var(--rich-black);
-    box-shadow: 10px 11px 0px 1px var(--rich-black);
+    box-shadow: 11px 11px 0px 1px var(--rich-black);
 }
 
 
@@ -41,9 +41,8 @@ img {
 .body-container {
     display: inline-block;
     width: 100%;
-    height: 100%;
     padding: 0 5% 2.5% 5%;
-
+    
     border: var(--rich-black) solid var(--border-width);
 }
 h2 {
@@ -58,6 +57,7 @@ p {
 }
 
 .body-bottom {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -70,4 +70,33 @@ p {
 }
 .order-button {
     align-self: flex-end;
+}
+@media only screen and (max-width: 600px) {
+    .tile {
+    
+        -webkit-box-shadow: 5px 5px 0px 1px var(--rich-black);
+        -moz-box-shadow: 5px 5px 0px 1px var(--rich-black);
+        box-shadow: 5px 5px 0px 1px var(--rich-black);
+    }
+    h2 {
+        font-size: calc(0.4rem + 3vmin);
+        margin-bottom: 0.15em;
+    }
+    p {
+        align-self: flex-start;
+        font-size: calc(0.4rem + 2vmin);
+        margin-bottom: 0.15em;
+        margin-top: 0.3em;
+    }
+    .wishlist-button {
+        position: absolute;
+        right: -1.2em;
+        top: 1em;
+    }
+    .body-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
 }

@@ -8,3 +8,8 @@
     display: inline-block;
     cursor: pointer;
 }
+@media only screen and (max-width: 600px) {
+    .emoji-button {
+        font-size: 2em;
+    }
+}

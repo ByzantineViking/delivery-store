@@ -1,0 +1,7 @@
+
+.wishlist {
+    height: min-content;
+    padding: 0.2em;
+    margin-top: .5em;
+    border: var(--rich-black) solid 4px;
+}

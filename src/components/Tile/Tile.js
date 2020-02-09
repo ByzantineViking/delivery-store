@@ -2,7 +2,6 @@ import React from 'react'
 import './Tile.css'
 import Button from '../Button/Button.js'
 const Tile = (props) => {
-    console.log(props.restaurant)
     return (
         <div className='tile'>
             <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
@@ -11,12 +10,12 @@ const Tile = (props) => {
                 {props.restaurant.description}
             </p>
             <Button
-                className='info-button'
+                className='wishlist-button'
                 body='🤔This?'
-                alt='consider'
+                alt='wishlist'
             />
             <Button
-                className='wishlist-button'
+                className='order-button'
                 body='🚴‍♂️Order'
                 alt='order'
             />

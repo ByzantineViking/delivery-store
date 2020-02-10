@@ -1,5 +1,5 @@
 import React from 'react'
-import './Tile.css'
+import './Wishlist.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 
 /**
@@ -11,12 +11,6 @@ const Tile = (props) => {
         <div className='tile'>
             <div className='image-background'>
                 <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
-                <EmojiButton
-                    className='wishlist-button'
-                    body='🤔'
-                    alt='wishlist'
-                    buttonAction={() => props.setWish(props.wishlistContent.concat(props.restaurant.name))}
-                />
             </div>
             <div className='divider'/>
             <div className='body-container'>
@@ -26,7 +20,6 @@ const Tile = (props) => {
                         {props.restaurant.description}
                     </p>
                     <EmojiButton
-                        buttonAction={console.log('debug')}
                         className='order-button'
                         body='🚴‍♂️'
                         alt='order'

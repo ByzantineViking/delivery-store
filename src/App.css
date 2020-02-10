@@ -3,9 +3,15 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 2.5%;
+}
+.tile-list-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 5% 2%;
     width: 100%;
     padding: 2.5%;
 }

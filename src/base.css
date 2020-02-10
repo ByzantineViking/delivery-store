@@ -4,7 +4,6 @@
 html {
     font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
-    overflow-x: hidden;
     width: 100%;
     --primary: #3498db;
     --secondary: #f06449;
@@ -13,7 +12,7 @@ html {
     --rich-black: #080f0f;
 
 }
-root {
+#root {
     width: 100%;
 }
 

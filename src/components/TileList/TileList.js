@@ -68,6 +68,7 @@ const TileList = (props) => {
                         <Tile
                             key={key}
                             restaurant={val}
+                            wishlistContent={props.wishlistContent}
                             setWish={props.setWish}
                         />
                     )}

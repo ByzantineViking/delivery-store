@@ -1,7 +1,14 @@
 
-.wishlist {
+.wishlist-container {
+    cursor: pointer;
     height: min-content;
-    padding: 0.2em;
+    width: 82.5%;
+    
     margin-top: .5em;
+    align-self: center;
+}
+.wishlist {
+    width: 100%;
+    padding: 0.2em 0.6em;
     border: var(--rich-black) solid 4px;
 }

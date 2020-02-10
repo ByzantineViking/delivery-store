@@ -2,7 +2,7 @@ import React from 'react'
 import Tile from '../Tile/Tile'
 import './TileList.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
-
+import uuidv1 from 'uuid/v1'
 /**
  * Column of tiles
  * @param {json}          restaurants         - Data about the restaurants.
@@ -19,9 +19,9 @@ const TileList = (props) => {
     const handleChange = (event) => {
         props.setFilter(event.target.value)
     }
-    console.log(props.alphabetical)
     return(
-        !props.visibility ?
+        props.wishlistExpanded ? <div/> :
+        !props.visibility && props.id !== 1 ?
             <div className='add-button-container'>
                 <EmojiButton
                     className='add-button'
@@ -58,7 +58,7 @@ const TileList = (props) => {
                         <input list='tags' className='filter' placeholder='filter' type='text' value={props.filter} onChange={handleChange}/>
                         <datalist id='tags' className='datalist'>
                             {props.tags.map(t =>
-                                t ? <option key={t} value={t}/> : <></>
+                                t ? <option key={uuidv1()} value={t}/> : <div key={uuidv1()}/>
                             )}
                         </datalist>
                     </form>
@@ -76,10 +76,13 @@ const TileList = (props) => {
                     .sort((a,b) => props.alphabetical ? ((a[1].name > b[1].name) ? 1 : -1) : ((a[1].name < b[1].name) ? 1 : -1))
                     .map(([key, val]) =>
                         <Tile
-                            key={key}
+                            key={uuidv1()}
                             restaurant={val}
                             wishlistContent={props.wishlistContent}
                             setWish={props.setWish}
+                            setList1Visibility={props.setList1Visibility}
+                            setList2Visibility={props.setList2Visibility}
+                            setWishlistExpansion={props.setWishlistExpansion}
                         />
                     )}
             </div>

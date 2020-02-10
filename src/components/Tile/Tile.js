@@ -7,6 +7,12 @@ import EmojiButton from '../EmojiButton/EmojiButton'
  * @param {json} restaurants - Data about the restaurants.
  */
 const Tile = (props) => {
+    const handleOrder = () => {
+        props.setList1Visibility(false)
+        props.setList2Visibility(false)
+        props.setWish([])
+        props.setWishlistExpansion(false)
+    }
     return (
         <div className='tile'>
             <div className='image-background'>
@@ -26,7 +32,7 @@ const Tile = (props) => {
                         {props.restaurant.description}
                     </p>
                     <EmojiButton
-                        buttonAction={console.log('order')}
+                        buttonAction={handleOrder}
                         className='order-button'
                         body='🚴‍♂️'
                         alt='order'

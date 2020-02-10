@@ -25,7 +25,7 @@ const App = (props) => {
             holder = holder.concat(props.restaurants.restaurants[key].tags[0])
         )
         setTags([...new Set(holder)])
-    }, [])
+    }, [props.restaurants.restaurants])
     return (
         <div className="container">
             <Wishlist

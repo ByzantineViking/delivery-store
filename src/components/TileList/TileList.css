@@ -15,7 +15,6 @@
     height: min-content;
     justify-content: space-between;
     align-items: baseline;
-
 }
 .control-bar {
     display: flex;
@@ -27,6 +26,10 @@
 .function-container {
     display: flex;
     flex-direction: row;
+}
+form {
+    /* Setting this to 100% would make filter Tile width */
+    width: auto;
 }
 .filter {
     font-family: 'Roboto Mono', monospace;

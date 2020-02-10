@@ -6,7 +6,7 @@
 
     position: relative;
     width: 100%;
-    height: auto;
+    height: fit-content;
     max-width: 350px;
     margin-bottom: 4em;
 

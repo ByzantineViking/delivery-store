@@ -6,9 +6,9 @@ import EmojiButton from '../EmojiButton/EmojiButton'
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
  */
-const Tile = (props) => {
+const WishlistTile = (props) => {
     return (
-        <div className='tile'>
+        <div id='wishlist' className='tile'>
             <div className='image-background'>
                 <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
             </div>
@@ -34,4 +34,4 @@ const Tile = (props) => {
 }
 
 
-export default Tile
+export default WishlistTile

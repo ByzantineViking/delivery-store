@@ -7,7 +7,6 @@ const WishList = (props) => {
         Object.keys(props.wishlistContent).reduce((acc, key) =>
             holder = holder.concat(props.wishlistContent[key].name)
         , '')
-        console.log(holder)
         return holder
     }
     const handleClick = () => {
@@ -15,9 +14,10 @@ const WishList = (props) => {
         props.setList2Visibility(false)
         props.setWishlistExpansion(true)
     }
+    const visible = props.wishlistContent.length > 0 ? 'block' : 'none'
     return(
         props.wishlistContent   ?
-            <div className="wishlist-container">
+            <div className="wishlist-container" style={{ display:visible }}>
                 <h2>
                     <span role="img" aria-label="Delicious">
                         😋

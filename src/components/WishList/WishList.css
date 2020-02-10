@@ -1,4 +1,7 @@
 
+#wishlist .tile {
+    width: fit-content;
+}
 .wishlist-container {
     cursor: pointer;
     height: min-content;
@@ -11,4 +14,10 @@
     width: 100%;
     padding: 0.2em 0.6em;
     border: var(--rich-black) solid 4px;
+}
+.expanded-wishlist {
+    display: grid;
+    padding: 10px 0;
+    grid-template-columns: 1fr 1fr;
+    cursor: auto;
 }

@@ -42,7 +42,13 @@ img {
     display: inline-block;
     width: 100%;
     padding: 0 5% 2.5% 5%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
     border: var(--rich-black) solid var(--border-width);
 }
 h2 {
@@ -54,6 +60,7 @@ p {
     font-size: calc(0.7rem + 1vmin);
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    
 }
 
 .body-bottom {

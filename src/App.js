@@ -15,16 +15,16 @@ const App = (props) => {
     const [alphabetical, setAlphabetical] = useState(true)
     const [tags, setTags] = useState([])
 
-    let holder = []
     useEffect( () => {
+        let holder = []
         Object.keys(props.restaurants.restaurants).reduce((acc, key) =>
             holder = holder.concat(props.restaurants.restaurants[key].tags[0])
         )
-        setTags(holder)
+        setTags([...new Set(holder)])
     }, [])
     return (
         <div className='container'>
-            {tags.forEach(t => console.log(t))}
+            {/*tags.forEach(t => console.log(t))*/}
             <TileList
                 id={1}
                 visibility={list1Visibility}
@@ -35,6 +35,7 @@ const App = (props) => {
                 setFilter={setFilter1}
                 alphabetical={alphabetical}
                 setAlphabetical={setAlphabetical}
+                tags={tags}
             />
             <TileList
                 id={2}
@@ -46,6 +47,7 @@ const App = (props) => {
                 setFilter={setFilter2}
                 alphabetical={alphabetical}
                 setAlphabetical={setAlphabetical}
+                tags={tags}
             />
 
         </div>

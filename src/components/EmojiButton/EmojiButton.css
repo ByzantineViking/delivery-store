@@ -8,8 +8,17 @@
     display: inline-block;
     cursor: pointer;
 }
+.x-button {
+    /* Overriding the normal button size */
+    font-size: 0.45em;
+    height: min-content;
+}
 @media only screen and (max-width: 600px) {
     .emoji-button {
         font-size: 2em;
+    }
+    .x-button {
+        /* Overriding the normal button size */
+        font-size: 0.4em;
     }
 }

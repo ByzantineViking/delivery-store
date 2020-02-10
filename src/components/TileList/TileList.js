@@ -5,14 +5,15 @@ import EmojiButton from '../EmojiButton/EmojiButton'
 
 /**
  * Column of tiles
- * @param {json}        restaurants         - Data about the restaurants.
- * @param {number}      id                  - Column number
- * @param {boolean}     visibility          - Is this column visible?
- * @param {function}    setList1Visibility  - State hook setting the first column visibility
- * @param {function}    setList2Visibility  - State hook setting the second column visibility
- * @param {string}      filter              - Filter the column by tags or restaurant name
- * @param {function}    setFilter           - State hook setting the filter
- * @param {boolean}     alphabetical        - Is the column sorted alphabetically or reverse
+ * @param {json}          restaurants         - Data about the restaurants.
+ * @param {number}        id                  - Column number
+ * @param {boolean}       visibility          - Is this column visible?
+ * @param {function}      setList1Visibility  - State hook setting the first column visibility
+ * @param {function}      setList2Visibility  - State hook setting the second column visibility
+ * @param {string}        filter              - Filter the column by tags or restaurant name
+ * @param {function}      setFilter           - State hook setting the filter
+ * @param {boolean}       alphabetical        - Is the column sorted alphabetically or reverse
+ * @param {array[string]} tags                - An array of unique tags
  */
 const TileList = (props) => {
     const handleChange = (event) => {
@@ -30,13 +31,8 @@ const TileList = (props) => {
             </div>
             :
             <div className='tile-column'>
-                <div className='control-bar'>
-                    <form>
-                        <input id="tags" className='filter' placeholder='filter' type="text" value={props.filter} onChange={handleChange}/>
-                        <datalist id="tags">
-                            {}
-                        </datalist>
-                    </form>
+                <div className='title-bar'>
+                    <h2>{props.id}</h2>
                     {/* 'Delete column' button. The first column cannot be deleted */
                         props.id === 1         ?
                             <React.Fragment/>   :
@@ -46,6 +42,17 @@ const TileList = (props) => {
                                 alt='close-column'
                                 buttonAction={() => props.setList2Visibility(false)}
                             />}
+                </div>
+                <div className='control-bar'>
+                    <form>
+                        <input list="tags" className='filter' placeholder='filter' type="text" value={props.filter} onChange={handleChange}/>
+                        <datalist id="tags" className='datalist'>
+                            {props.tags.map(t =>
+                                t ? <option key={t} value={t}/> : <></>
+                            )}
+                        </datalist>
+                    </form>
+
                 </div>
                 {Object.entries(props.restaurants.restaurants)
                     .filter( (restaurant) =>

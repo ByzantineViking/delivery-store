@@ -12,6 +12,10 @@
     /* Overriding the normal button size */
     font-size: 0.45em;
     height: min-content;
+    margin-left: 1em;
+}
+.sort-button {
+    font-size: 0.5em;
 }
 @media only screen and (max-width: 600px) {
     .emoji-button {
@@ -20,5 +24,8 @@
     .x-button {
         /* Overriding the normal button size */
         font-size: 0.4em;
+    }
+    .sort-button {
+        font-size: 0.43em;
     }
 }

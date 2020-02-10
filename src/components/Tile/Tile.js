@@ -15,7 +15,7 @@ const Tile = (props) => {
                     className='wishlist-button'
                     body='🤔'
                     alt='wishlist'
-                    buttonAction={() => props.setWish(props.wishlistContent.concat(props.restaurant.name))}
+                    buttonAction={() => props.setWish(props.wishlistContent.concat(props.restaurant))}
                 />
             </div>
             <div className='divider'/>
@@ -26,7 +26,7 @@ const Tile = (props) => {
                         {props.restaurant.description}
                     </p>
                     <EmojiButton
-                        buttonAction={console.log('debug')}
+                        buttonAction={console.log('order')}
                         className='order-button'
                         body='🚴‍♂️'
                         alt='order'

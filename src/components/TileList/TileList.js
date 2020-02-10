@@ -19,6 +19,7 @@ const TileList = (props) => {
     const handleChange = (event) => {
         props.setFilter(event.target.value)
     }
+    console.log(props.alphabetical)
     return(
         !props.visibility ?
             <div className='add-button-container'>
@@ -33,20 +34,29 @@ const TileList = (props) => {
             <div className='tile-column'>
                 <div className='title-bar'>
                     <h2>{props.id}</h2>
-                    {/* 'Delete column' button. The first column cannot be deleted */
-                        props.id === 1         ?
-                            <React.Fragment/>   :
-                            <EmojiButton
-                                className='x-button'
-                                body='❌'
-                                alt='close-column'
-                                buttonAction={() => props.setList2Visibility(false)}
-                            />}
+                    <div className='function-container'>
+                        <EmojiButton
+                            className='sort-button'
+                            body='↕️'
+                            alt='sort'
+                            buttonAction={props.setAlphabetical}
+                        />
+                        {/* 'Delete column' button. The first column cannot be deleted */
+                            props.id === 1          ?
+                                <React.Fragment/>   :
+                                <EmojiButton
+                                    className='x-button'
+                                    body='❌'
+                                    alt='close-column'
+                                    buttonAction={() => props.setList2Visibility(false)}
+                                />}
+                    </div>
+
                 </div>
                 <div className='control-bar'>
                     <form>
-                        <input list="tags" className='filter' placeholder='filter' type="text" value={props.filter} onChange={handleChange}/>
-                        <datalist id="tags" className='datalist'>
+                        <input list='tags' className='filter' placeholder='filter' type='text' value={props.filter} onChange={handleChange}/>
+                        <datalist id='tags' className='datalist'>
                             {props.tags.map(t =>
                                 t ? <option key={t} value={t}/> : <></>
                             )}

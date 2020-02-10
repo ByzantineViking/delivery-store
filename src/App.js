@@ -14,8 +14,9 @@ const App = (props) => {
     const [filter1, setFilter1] = useState('')
     const [filter2, setFilter2] = useState('')
     const [wishlistExpanded, setWishlistExpansion] = useState(false)
-    const [wishlistContent, setWish] = useState(['chinese'])
-    const [alphabetical, setAlphabetical] = useState(true)
+    const [wishlistContent, setWish] = useState([])
+    const [list1Alphabetical, set1Alphabetical] = useState(true)
+    const [list2Alphabetical, set2Alphabetical] = useState(true)
     const [tags, setTags] = useState([])
 
     useEffect( () => {
@@ -28,6 +29,7 @@ const App = (props) => {
     return (
         <div className="container">
             <Wishlist
+                restaurants={props.restaurants}
                 setList1Visibility={setList1Visibility}
                 setList2Visibility={setList2Visibility}
                 wishlistExpanded={wishlistExpanded}
@@ -46,9 +48,8 @@ const App = (props) => {
 
                     filter={filter1}
                     setFilter={setFilter1}
-
-                    alphabetical={alphabetical}
-                    setAlphabetical={setAlphabetical}
+                    alphabetical={list1Alphabetical}
+                    setAlphabetical={() => set1Alphabetical(!list1Alphabetical)}
 
                     tags={tags}
 
@@ -68,8 +69,8 @@ const App = (props) => {
 
                     filter={filter2}
                     setFilter={setFilter2}
-                    alphabetical={alphabetical}
-                    setAlphabetical={setAlphabetical}
+                    alphabetical={list2Alphabetical}
+                    setAlphabetical={() => set2Alphabetical(!list2Alphabetical)}
 
                     tags={tags}
 

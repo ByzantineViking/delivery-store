@@ -1,6 +1,11 @@
 import React from 'react'
 import './Tile.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
+
+/**
+ * App components performs data handling
+ * @param {json} restaurants - Data about the restaurants.
+ */
 const Tile = (props) => {
     return (
         <div className='tile'>

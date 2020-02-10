@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './base.css'
 import './App.css'
 
@@ -13,8 +13,18 @@ const App = (props) => {
     const [filter1, setFilter1] = useState('')
     const [filter2, setFilter2] = useState('')
     const [alphabetical, setAlphabetical] = useState(true)
+    const [tags, setTags] = useState([])
+
+    let holder = []
+    useEffect( () => {
+        Object.keys(props.restaurants.restaurants).reduce((acc, key) =>
+            holder = holder.concat(props.restaurants.restaurants[key].tags[0])
+        )
+        setTags(holder)
+    }, [])
     return (
         <div className='container'>
+            {tags.forEach(t => console.log(t))}
             <TileList
                 id={1}
                 visibility={list1Visibility}
@@ -37,6 +47,7 @@ const App = (props) => {
                 alphabetical={alphabetical}
                 setAlphabetical={setAlphabetical}
             />
+
         </div>
     )
 }

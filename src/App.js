@@ -4,6 +4,7 @@ import './App.css'
 
 import TileList from './components/TileList/TileList'
 import Wishlist from './components/Wishlist/Wishlist'
+import Order    from './components/Order/Order'
 /**
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
@@ -18,6 +19,7 @@ const App = (props) => {
     const [list1Alphabetical, set1Alphabetical] = useState(true)
     const [list2Alphabetical, set2Alphabetical] = useState(true)
     const [tags, setTags] = useState([])
+    const [order, setOrder] = useState('')
 
     useEffect( () => {
         let holder = []
@@ -28,13 +30,19 @@ const App = (props) => {
     }, [props.restaurants.restaurants])
     return (
         <div className="container">
+            <Order
+                order={order}>
+            </Order>
             <Wishlist
                 restaurants={props.restaurants}
                 setList1Visibility={setList1Visibility}
                 setList2Visibility={setList2Visibility}
                 wishlistExpanded={wishlistExpanded}
                 wishlistContent={wishlistContent}
+                setWish={setWish}
                 setWishlistExpansion={setWishlistExpansion}
+                order={order}
+                setOrder={setOrder}
             />
             <div className="tile-list-container">
                 <TileList
@@ -57,6 +65,9 @@ const App = (props) => {
                     setWish={setWish}
                     wishlistExpanded={wishlistExpanded}
                     setWishlistExpansion={setWishlistExpansion}
+
+                    order={order}
+                    setOrder={setOrder}
                 />
                 <TileList
                     id={2}
@@ -78,6 +89,9 @@ const App = (props) => {
                     setWish={setWish}
                     wishlistExpanded={wishlistExpanded}
                     setWishlistExpansion={setWishlistExpansion}
+
+                    order={order}
+                    setOrder={setOrder}
                 />
             </div>
         </div>

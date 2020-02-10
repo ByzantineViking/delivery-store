@@ -20,7 +20,7 @@ const TileList = (props) => {
         props.setFilter(event.target.value)
     }
     return(
-        props.wishlistExpanded ? <div/> :
+        props.wishlistExpanded || props.order ? <div/> :
         !props.visibility && props.id !== 1 ?
             <div className='add-button-container'>
                 <EmojiButton
@@ -83,6 +83,7 @@ const TileList = (props) => {
                             setList1Visibility={props.setList1Visibility}
                             setList2Visibility={props.setList2Visibility}
                             setWishlistExpansion={props.setWishlistExpansion}
+                            setOrder={props.setOrder}
                         />
                     )}
             </div>

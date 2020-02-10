@@ -8,9 +8,10 @@ import EmojiButton from '../EmojiButton/EmojiButton'
  */
 const Tile = (props) => {
     const handleOrder = () => {
+        props.setOrder(props.restaurant)
         props.setList1Visibility(false)
         props.setList2Visibility(false)
-        props.setWish([])
+        props.setWish([props.restaurant])
         props.setWishlistExpansion(false)
     }
     return (
@@ -32,7 +33,7 @@ const Tile = (props) => {
                         {props.restaurant.description}
                     </p>
                     <EmojiButton
-                        buttonAction={handleOrder}
+                        buttonAction={() => handleOrder()}
                         className='order-button'
                         body='🚴‍♂️'
                         alt='order'

@@ -16,7 +16,7 @@ const WishList = (props) => {
     }
     const visible = props.wishlistContent.length > 0 ? 'block' : 'none'
     return(
-        props.wishlistContent   ?
+        props.wishlistContent && !props.order   ?
             <div className="wishlist-container" style={{ display:visible }}>
                 <h2>
                     <span role="img" aria-label="Delicious">
@@ -25,7 +25,13 @@ const WishList = (props) => {
                 </h2>
                 <div className="wishlist" onClick={handleClick}>
                     {props.wishlistExpanded ?
-                        <ExpandedWishlist wishlistContent={props.wishlistContent}/> :
+                        <ExpandedWishlist
+                            setList1Visibility={props.setList1Visibility}
+                            setList2Visibility={props.setList2Visibility}
+                            setWish={props.setWish}
+                            setWishlistExpansion={props.setWishlistExpansion}
+                            setOrder={props.setOrder}
+                            wishlistContent={props.wishlistContent}/> :
                         restaurantNames(props.wishlistContent).join()
                     }
                 </div>

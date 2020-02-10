@@ -7,6 +7,13 @@ import EmojiButton from '../EmojiButton/EmojiButton'
  * @param {json} restaurants - Data about the restaurants.
  */
 const WishlistTile = (props) => {
+    const handleOrder = () => {
+        props.setOrder(props.restaurant)
+        props.setList1Visibility(false)
+        props.setList2Visibility(false)
+        props.setWish([props.restaurant])
+        props.setWishlistExpansion(false)
+    }
     return (
         <div id='wishlist' className='tile'>
             <div className='image-background'>
@@ -23,6 +30,7 @@ const WishlistTile = (props) => {
                         className='order-button'
                         body='🚴‍♂️'
                         alt='order'
+                        buttonAction={() => handleOrder()}
                     />
                 </div>
 

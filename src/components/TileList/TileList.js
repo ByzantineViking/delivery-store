@@ -80,9 +80,6 @@ const TileList = (props) => {
                             restaurant={val}
                             wishlistContent={props.wishlistContent}
                             setWish={props.setWish}
-                            setList1Visibility={props.setList1Visibility}
-                            setList2Visibility={props.setList2Visibility}
-                            setWishlistExpansion={props.setWishlistExpansion}
                             setOrder={props.setOrder}
                         />
                     )}

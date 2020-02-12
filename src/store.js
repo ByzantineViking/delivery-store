@@ -1,12 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import {
-    displayReducer,
-} from './reducers/displayReducer'
+    displayReducer, orderReducer, wishReducer,
+} from './reducers/visibilityReducers'
 
 
 const collectiveReducer = combineReducers({
     open: displayReducer,
+    wishlist: wishReducer,
+    order: orderReducer,
 })
 
 // The store is defined here at the starting point

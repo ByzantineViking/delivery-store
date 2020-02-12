@@ -45,7 +45,7 @@ const TileList = (props) => {
         }
     }
     return(
-        <div>
+        <div className='tile-list-container'>
             {props.open[`drawer${props.id}`].collapsed && <div className='add-button-container'>
                 <EmojiButton
                     className='add-button'

@@ -25,7 +25,7 @@ const App = (props) => {
             <Wishlist
                 restaurants={props.restaurants}
             />
-            <div className="tile-list-container">
+            <div className="tile-lists-container">
                 <TileList
                     id={1}
                     restaurants={props.restaurants}

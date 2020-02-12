@@ -1,9 +1,11 @@
 
-
+.tile-list-container {
+    width: 35%;
+}
 .tile-column {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     max-width: 340px;
     height: min-content;
     justify-content: space-evenly;

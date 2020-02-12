@@ -29,10 +29,10 @@ const initialState = {
         order: visibility.HIDDEN,
     },
     wishlistContent: [],
-    order: {},
+    foodOrder: [],
 }
 
-export const setWish = (restaurant) => {
+export const wish = (restaurant) => {
     return {
         type: 'WISH',
         data: {
@@ -48,18 +48,18 @@ export const wishReducer = (state = initialState.wishlistContent, action) => {
             return state
     }
 }
-export const setOrder = (restaurant) => {
+export const orderFood = (restaurant) => {
     return {
-        type: 'ORDER',
+        type: 'ORDER_FOOD',
         data: {
             order: restaurant
         }
     }
 }
-export const orderReducer = (state = initialState.wishlistContent, action) => {
+export const orderFoodReducer = (state = initialState.foodOrder, action) => {
     switch (action.type) {
-        case 'ORDER':
-            return action.data.order
+        case 'ORDER_FOOD':
+            return state.order.concat(action.data.order)
         default:
             return state
     }

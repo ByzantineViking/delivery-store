@@ -1,15 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './Tile.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 
+import { orderFood, wish } from '../../reducers/choiceReducers'
 /**
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
  */
 const Tile = (props) => {
     const handleOrder = () => {
-        props.setOrder(props.restaurant)
-        props.setWish([props.restaurant])
+        props.orderFood(props.restaurant)
+        props.wish([props.restaurant])
     }
     return (
         <div className='tile'>
@@ -19,7 +21,7 @@ const Tile = (props) => {
                     className='wishlist-button'
                     body='🤔'
                     alt='wishlist'
-                    buttonAction={() => props.setWish(props.wishlistContent.concat(props.restaurant))}
+                    buttonAction={() => props.wish(props.wishlistContent.concat(props.restaurant))}
                 />
             </div>
             <div className='divider'/>
@@ -44,5 +46,14 @@ const Tile = (props) => {
     )
 }
 
-
-export default Tile
+const mapStateToProps = (state) => {
+    return {
+        filter: state.filter,
+        tags: state.tags,
+    }
+}
+const mapDispatchToProps = {
+    wish,
+    orderFood
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Tile)

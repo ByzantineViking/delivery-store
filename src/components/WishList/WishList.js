@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducers'
+import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
 const Wishlist = (props) => {
     const restaurantNames = () => {
         let holder = []
-        Object.keys(props.wishlistContent).reduce((acc, key) =>
-            holder = holder.concat(props.wishlistContent[key].name)
+        Object.keys(props.wishlist).reduce((acc, key) =>
+            holder = holder.concat(props.wishlist[key].name)
         , '')
         return holder
     }
@@ -18,10 +18,9 @@ const Wishlist = (props) => {
             props.displayFull({ id: 'wishlist' })
         }
     }
-    const visible = props.wishlistContent.length > 0 ? 'block' : 'none'
     return(
-        props.wishlistContent && !props.order   ?
-            <div className="wishlist-container" style={{ display:visible }}>
+        <div>
+            {!props.open.wishlist.hidden && <div className="wishlist-container">
                 <h2>
                     <span role="img" aria-label="Delicious">
                         😋
@@ -29,21 +28,18 @@ const Wishlist = (props) => {
                 </h2>
                 <div className="wishlist" onClick={handleClick}>
                     {props.open.wishlist.full ?
-                        <ExpandedWishlist
-                            setWish={props.setWish}
-                            setOrder={props.setOrder}
-                            wishlistContent={props.wishlistContent}/> :
-                        restaurantNames(props.wishlistContent).join()
+                        <ExpandedWishlist /> :
+                        restaurantNames(props.wishlist).join()
                     }
                 </div>
-            </div>
-        // eslint-disable-next-line indent
-                                : <div/>
+            </div>}
+        </div>
     )
 }
 const mapStateToProps = (state) => {
     return {
-        open: state.open
+        open: state.open,
+        wishlist: state.wishlist,
     }
 }
 const mapDispatchToProps = {

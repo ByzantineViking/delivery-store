@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { displayCollapsed, displayFull, displayNone } from '../../reducers/displayReducer'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
 const WishList = (props) => {
@@ -13,6 +15,10 @@ const WishList = (props) => {
         props.setList1Visibility(false)
         props.setList2Visibility(false)
         props.setWishlistExpansion(true)
+
+        props.displayNone({ id: 'drawer1' })
+        props.displayNone({ id: 'drawer2' })
+        props.displayFull({ id: 'wishlist' })
     }
     const visible = props.wishlistContent.length > 0 ? 'block' : 'none'
     return(
@@ -40,5 +46,14 @@ const WishList = (props) => {
                                 : <div/>
     )
 }
-
-export default WishList
+const mapStateToProps = (state) => {
+    return {
+        open: state.open
+    }
+}
+const mapDispatchToProps = {
+    displayFull,
+    displayCollapsed,
+    displayNone
+}
+export default connect(mapStateToProps, mapDispatchToProps)(WishList)

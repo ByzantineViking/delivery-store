@@ -2,6 +2,17 @@
 {
     "extends": "stylelint-config-recommended",
     "rules": {
-      "indentation": 4
+      "indentation": 4,
+      "unit-whitelist": [
+        "em",
+        "rem",
+        "%",
+        "px",
+        "fr",
+        "vmin"
+      ],
+      "color-no-hex": false,
+      "color-hex-case": "lower",
+      "unit-case": "lower"
     }
 }

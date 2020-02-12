@@ -1,5 +1,9 @@
 A webstore front-end for food delivery from multiple restaurants. Focus on being able to compare different kinds of restaurants with ease, and being able to save promising restaurants before making a decision between them.
 
+![filter](screens/filter.png?raw=true "Web store")
+
+
+
 ## Project Structure
 ```
 Project Root
@@ -39,3 +43,5 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+

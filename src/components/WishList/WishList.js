@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { displayCollapsed, displayFull, displayNone } from '../../reducers/displayReducer'
+import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducers'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
 const WishList = (props) => {
@@ -12,13 +12,11 @@ const WishList = (props) => {
         return holder
     }
     const handleClick = () => {
-        props.setList1Visibility(false)
-        props.setList2Visibility(false)
-        props.setWishlistExpansion(true)
-
-        props.displayNone({ id: 'drawer1' })
-        props.displayNone({ id: 'drawer2' })
-        props.displayFull({ id: 'wishlist' })
+        if(props.open.wishlist.collapsed) {
+            props.displayNone({ id: 'drawer1' })
+            props.displayNone({ id: 'drawer2' })
+            props.displayFull({ id: 'wishlist' })
+        }
     }
     const visible = props.wishlistContent.length > 0 ? 'block' : 'none'
     return(
@@ -30,12 +28,9 @@ const WishList = (props) => {
                     </span>
                 </h2>
                 <div className="wishlist" onClick={handleClick}>
-                    {props.wishlistExpanded ?
+                    {props.open.wishlist.full ?
                         <ExpandedWishlist
-                            setList1Visibility={props.setList1Visibility}
-                            setList2Visibility={props.setList2Visibility}
                             setWish={props.setWish}
-                            setWishlistExpansion={props.setWishlistExpansion}
                             setOrder={props.setOrder}
                             wishlistContent={props.wishlistContent}/> :
                         restaurantNames(props.wishlistContent).join()

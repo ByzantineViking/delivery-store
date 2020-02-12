@@ -11,16 +11,9 @@ import Order    from './components/Order/Order'
  * @param {json} restaurants - Data about the restaurants.
  */
 const App = (props) => {
-    const [list1Visibility, setList1Visibility] = useState(true)
-    const [list2Visibility, setList2Visibility] = useState(true)
     const [filter1, setFilter1] = useState('')
     const [filter2, setFilter2] = useState('')
-    const [wishlistExpanded, setWishlistExpansion] = useState(false)
-    const [wishlistContent, setWish] = useState([])
-    const [list1Alphabetical, set1Alphabetical] = useState(true)
-    const [list2Alphabetical, set2Alphabetical] = useState(true)
     const [tags, setTags] = useState([])
-    const [order, setOrder] = useState('')
 
     useEffect( () => {
         let holder = []
@@ -36,12 +29,8 @@ const App = (props) => {
             </Order>
             <Wishlist
                 restaurants={props.restaurants}
-                setList1Visibility={setList1Visibility}
-                setList2Visibility={setList2Visibility}
-                wishlistExpanded={wishlistExpanded}
                 wishlistContent={wishlistContent}
                 setWish={setWish}
-                setWishlistExpansion={setWishlistExpansion}
                 order={order}
                 setOrder={setOrder}
             />
@@ -49,9 +38,6 @@ const App = (props) => {
                 <TileList
                     id={1}
 
-                    visibility={list1Visibility}
-                    setList1Visibility={setList1Visibility}
-                    setList2Visibility={setList2Visibility}
 
                     restaurants={props.restaurants}
 
@@ -64,8 +50,6 @@ const App = (props) => {
 
                     wishlistContent={wishlistContent}
                     setWish={setWish}
-                    wishlistExpanded={wishlistExpanded}
-                    setWishlistExpansion={setWishlistExpansion}
 
                     order={order}
                     setOrder={setOrder}
@@ -73,9 +57,6 @@ const App = (props) => {
                 <TileList
                     id={2}
 
-                    visibility={list2Visibility}
-                    setList1Visibility={setList1Visibility}
-                    setList2Visibility={setList2Visibility}
 
                     restaurants={props.restaurants}
 
@@ -88,8 +69,6 @@ const App = (props) => {
 
                     wishlistContent={wishlistContent}
                     setWish={setWish}
-                    wishlistExpanded={wishlistExpanded}
-                    setWishlistExpansion={setWishlistExpansion}
 
                     order={order}
                     setOrder={setOrder}

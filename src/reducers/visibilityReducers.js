@@ -28,6 +28,8 @@ const initialState = {
             hidden: true,
         },
     },
+    wishlistContent: [],
+    order: {},
 }
 
 
@@ -79,3 +81,5 @@ export const displayReducer = (state = initialState.open, action) => {
             return state
     }
 }
+
+

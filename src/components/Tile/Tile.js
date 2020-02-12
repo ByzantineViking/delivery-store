@@ -9,10 +9,7 @@ import EmojiButton from '../EmojiButton/EmojiButton'
 const Tile = (props) => {
     const handleOrder = () => {
         props.setOrder(props.restaurant)
-        props.setList1Visibility(false)
-        props.setList2Visibility(false)
         props.setWish([props.restaurant])
-        props.setWishlistExpansion(false)
     }
     return (
         <div className='tile'>

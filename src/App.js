@@ -3,6 +3,7 @@ import './base.css'
 import './App.css'
 
 import TileList from './components/TileList/TileList'
+// Note: Wishlist not WishList
 import Wishlist from './components/Wishlist/Wishlist'
 import Order    from './components/Order/Order'
 /**

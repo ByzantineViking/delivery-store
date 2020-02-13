@@ -48,6 +48,11 @@ const TileList = (props) => {
     }
     const collapseDrawer = () => {
         props.displayCollapsed({ id: `drawer${props.id}` })
+        if (props.id === 2) {
+            props.displayNone({ id: 'drawer3' })
+        } else if (props.id === 1) {
+            props.displayNone({ id: 'drawer2' })
+        }
     }
     return(
         <div className='tile-list-container'>

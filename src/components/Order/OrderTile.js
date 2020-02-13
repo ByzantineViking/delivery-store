@@ -14,8 +14,6 @@ const OrderTile = (props) => {
                 <h2>{props.restaurant.name}</h2>
                 <span role="img" aria-label="Food is on it's way">🚴‍♂️On🚴‍♂️It&apos;s🚴‍♂️Way</span>
             </div>
-
-
         </div>
     )
 }

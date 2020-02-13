@@ -1,7 +1,7 @@
 import React from 'react'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
-const WishList = (props) => {
+const Wishlist = (props) => {
     const restaurantNames = () => {
         let holder = []
         Object.keys(props.wishlistContent).reduce((acc, key) =>
@@ -41,4 +41,4 @@ const WishList = (props) => {
     )
 }
 
-export default WishList
+export default Wishlist

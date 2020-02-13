@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import './Tile.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 
-import { orderFood, wish, deleteWish } from '../../reducers/choiceReducers'
+import { orderFood, wish, deleteWish } from '../../reducers/choiceReducer'
 import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 /**
  * App components performs data handling

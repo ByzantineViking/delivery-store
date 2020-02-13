@@ -1,35 +1,30 @@
 
+const visibility = Object.freeze({
+    FULL: {
+        full: true,
+        collapsed: false,
+        hidden: false
+    },
+    COLLAPSED: {
+        full: false,
+        collapsed: true,
+        hidden: false
+    },
+    HIDDEN: {
+        full: false,
+        collapsed: false,
+        hidden: true
+    }
+})
 
 const initialState = {
     open: {
-        drawer1: {
-            full: true,
-            collapsed: false,
-            hidden: false,
-        },
-        drawer2: {
-            full: false,
-            collapsed: true,
-            hidden: false,
-        },
-        drawer3: {
-            full: false,
-            collapsed: true,
-            hidden: false,
-        },
-        wishlist: {
-            full: false,
-            collapsed: false,
-            hidden: true,
-        },
-        order: {
-            full: false,
-            collapsed: false,
-            hidden: true,
-        },
+        drawer1: visibility.FULL,
+        drawer2: visibility.COLLAPSED,
+        drawer3: visibility.HIDDEN,
+        wishlist: visibility.HIDDEN,
+        order: visibility.HIDDEN,
     },
-    wishlistContent: [],
-    order: {},
 }
 
 
@@ -38,11 +33,7 @@ export const displayCollapsed = (drawer) => {
     return {
         type: 'COLLAPSE',
         data: {
-            [drawer.id]: {
-                full: false,
-                collapsed: true,
-                hidden: false,
-            }
+            [drawer.id]: visibility.COLLAPSED
         }
     }
 }
@@ -50,11 +41,7 @@ export const displayFull = (drawer) => {
     return {
         type: 'FULL',
         data: {
-            [drawer.id]: {
-                full: true,
-                collapsed: false,
-                hidden: false,
-            }
+            [drawer.id]: visibility.FULL
         }
     }
 }
@@ -62,11 +49,7 @@ export const displayNone = (drawer) => {
     return {
         type: 'HIDE',
         data: {
-            [drawer.id]: {
-                full: false,
-                collapsed: false,
-                hidden: true,
-            }
+            [drawer.id]: visibility.HIDDEN
         }
     }
 }

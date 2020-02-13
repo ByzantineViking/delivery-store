@@ -7,7 +7,7 @@ import uuidv1 from 'uuid/v1'
 
 import { orderDrawers } from '../../reducers/orderingReducer'
 import { setFilter } from '../../reducers/filterReducer'
-import { displayCollapsed, displayFull } from '../../reducers/visibilityReducer'
+import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 /**
  * Column of tiles
  * @param {json}          restaurants         - Data about the restaurants.
@@ -39,7 +39,12 @@ const TileList = (props) => {
         }
     }
     const openDrawer = () => {
-        props.displayFull({ id:`drawer${props.id}` })
+        props.displayFull({ id: `drawer${props.id}` })
+        if(props.id === 1) {
+            props.displayCollapsed({ id: 'drawer2' })
+        } else if (props.id === 2) {
+            props.displayCollapsed({ id: 'drawer3' })
+        }
     }
     const collapseDrawer = () => {
         props.displayCollapsed({ id: `drawer${props.id}` })
@@ -111,13 +116,15 @@ const mapStateToProps = (state) => {
         open: state.open,
         filter: state.filter,
         tags: state.tags,
-        drawerOrders: state.drawerOrders
+        drawerOrders: state.drawerOrders,
+        window: state.window,
     }
 }
 const mapDispatchToProps = {
     setFilter,
     orderDrawers,
     displayFull,
-    displayCollapsed
+    displayCollapsed,
+    displayNone
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TileList)

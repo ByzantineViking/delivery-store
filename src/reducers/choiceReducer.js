@@ -1,33 +1,7 @@
 
 
 
-const visibility = Object.freeze({
-    FULL: {
-        full: true,
-        collapsed: false,
-        hidden: false
-    },
-    COLLAPSED: {
-        full: false,
-        collapsed: true,
-        hidden: false
-    },
-    HIDDEN: {
-        full: false,
-        collapsed: false,
-        hidden: true
-    }
-})
-
-
 const initialState = {
-    open: {
-        drawer1: visibility.FULL,
-        drawer2: visibility.COLLAPSED,
-        drawer3: visibility.HIDDEN,
-        wishlist: visibility.HIDDEN,
-        order: visibility.HIDDEN,
-    },
     wishlist: [],
     foodOrder: [],
 }

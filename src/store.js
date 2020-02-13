@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { displayReducer } from './reducers/visibilityReducer'
-import { orderFoodReducer, wishReducer } from './reducers/choiceReducers'
+import { orderFoodReducer, wishReducer } from './reducers/choiceReducer'
 import { drawerOrderReducer } from './reducers/orderingReducer'
 import { filterReducer } from './reducers/filterReducer'
 import { tagReducer } from './reducers/tagReducer'
-
+import { windowReducer } from './reducers/responsivenessReducer'
 const collectiveReducer = combineReducers({
     open: displayReducer,
     wishlist: wishReducer,
@@ -13,6 +13,7 @@ const collectiveReducer = combineReducers({
     drawerOrders: drawerOrderReducer,
     filter: filterReducer,
     tags: tagReducer,
+    window: windowReducer,
 })
 
 // The store is defined here at the starting point

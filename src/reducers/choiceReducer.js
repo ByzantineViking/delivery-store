@@ -21,7 +21,7 @@ export const deleteWish = (restaurant) => {
 export const wishReducer = (state = initialState.wishlist, action) => {
     switch (action.type) {
         case 'WISH':
-            return state.concat(action.data)
+            return state.find(r => r.name === action.data.name) ? state : state.concat(action.data)
         case 'UNWISH':
             return state.filter(restaurant => restaurant.name !== action.data.name)
         default:

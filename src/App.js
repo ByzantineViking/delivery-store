@@ -12,27 +12,28 @@ import Order    from './components/Order/Order'
  * @param {json} restaurants - Data about the restaurants.
  */
 const App = (props) => {
+    const { restaurants: r, setTags } = props
     useEffect( () => {
         let holder = []
-        Object.keys(props.restaurants.restaurants).reduce((acc, key) =>
-            holder = holder.concat(props.restaurants.restaurants[key].tags[0])
+        Object.keys(r.restaurants).reduce((acc, key) =>
+            holder = holder.concat(r.restaurants[key].tags[0])
         )
-        props.setTags([...new Set(holder)])
-    }, [props.restaurants.restaurants])
+        setTags([...new Set(holder)])
+    }, [r.restaurants, setTags])
     return (
         <div className="container">
             <Order/>
             <Wishlist
-                restaurants={props.restaurants}
+                restaurants={r}
             />
             <div className="tile-lists-container">
                 <TileList
                     id={1}
-                    restaurants={props.restaurants}
+                    restaurants={r}
                 />
                 <TileList
                     id={2}
-                    restaurants={props.restaurants}
+                    restaurants={r}
                 />
             </div>
         </div>

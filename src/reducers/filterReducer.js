@@ -9,19 +9,18 @@ const initialState = {
 }
 
 
-export const setFilter = ({ drawer, filter }) => {
+export const setFilter = ({ id, filter }) => {
     return {
         type: 'FILTER',
         data: {
-            name: drawer,
-            content: filter
+            [`drawer${id}`]: filter,
         }
     }
 }
 export const filterReducer = (state = initialState.filter, action) => {
     switch (action.type) {
         case 'FILTER':
-            return state.filter[action.data.name] = action.data.content
+            return Object.assign({}, state, action.data)
         default:
             return state
     }

@@ -1,7 +1,7 @@
 A webstore front-end for food delivery from multiple restaurants. Focus on being able to compare different kinds of restaurants with ease, and being able to save promising restaurants before making a decision between them.
 
-![filter](screens/filter.png?raw=true "Web store")
-
+![filter](screens/addcolumn.png?raw=true "Web store")
+More screenshots at ./screens
 
 
 ## Project Structure

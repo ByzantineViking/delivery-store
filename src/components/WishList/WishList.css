@@ -2,6 +2,7 @@
 #wishlist.tile {
     margin: 6% 6%;
     width: fit-content;
+    background-color: var(--primary);
 }
 .wishlist-remainder-when-hidden {
     width: 82.5%;

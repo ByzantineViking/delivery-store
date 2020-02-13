@@ -1,5 +1,19 @@
 
-
-.order {
+.order-container {
+    width: 100%;
     align-self: center;
+    
+}
+.order {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 50px;
+    border-bottom: var(--rich-black) solid 5px;
+}
+
+#order.tile {
+    margin:  2.5%;
+    background-color: var(--success-green);
 }

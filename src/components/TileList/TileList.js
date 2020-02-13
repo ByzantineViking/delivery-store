@@ -57,14 +57,18 @@ const TileList = (props) => {
     }
     return(
         <div className='tile-list-container' id={currentDrawer}>
-            {props.open[currentDrawer].collapsed && <div className='add-button-container'>
-                <EmojiButton
-                    className='add-button'
-                    body='➕'
-                    alt='close-column'
-                    buttonAction={() => openDrawer()}
-                />
-            </div>}
+            {props.open[currentDrawer].collapsed &&
+                <div style={{ height: 'fit-content', width: 'fit-content' }}>
+                    <div className='spacer'/>
+                    <div className='add-button-container'>
+                        <EmojiButton
+                            className='add-button'
+                            body='➕'
+                            alt='close-column'
+                            buttonAction={() => openDrawer()}
+                        />
+                    </div>
+                </div>}
 
 
             {props.open[currentDrawer].full && <div className='tile-column'>

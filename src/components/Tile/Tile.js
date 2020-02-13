@@ -16,6 +16,7 @@ const Tile = (props) => {
         props.displayFull({ id: 'order' })
         props.displayCollapsed({ id: 'drawer1' })
         props.displayNone({ id: 'drawer2' })
+        props.displayNone({ id: 'drawer3' })
     }
     const handleWish = () => {
         props.wish(props.restaurant)

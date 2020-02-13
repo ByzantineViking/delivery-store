@@ -5,7 +5,7 @@ import React from 'react'
  */
 const OrderTile = (props) => {
     return (
-        <div className='tile'>
+        <div className='tile' id='order'>
             <div className='image-background'>
                 <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
             </div>

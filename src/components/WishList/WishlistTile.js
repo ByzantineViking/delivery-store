@@ -15,6 +15,7 @@ const WishlistTile =  (props) => {
         props.displayFull({ id: 'order' })
         props.displayCollapsed({ id: 'drawer1' })
         props.displayNone({ id: 'drawer2' })
+        props.displayNone({ id: 'drawer3' })
     }
     return (
         <div id='wishlist' className='tile'>

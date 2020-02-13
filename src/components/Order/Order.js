@@ -5,7 +5,8 @@ import uuidv1 from 'uuid/v1'
 import './Order.css'
 const Order = (props) => {
     return(
-        <div>
+        <div className="order-container">
+            {props.open.order.full &&<h3>Your orders:</h3>}
             {props.open.order.full && <div className="order">
                 {props.foodOrder.map(restaurant => <OrderTile key={uuidv1()} restaurant={restaurant}/>)}
             </div>}

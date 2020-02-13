@@ -26,6 +26,7 @@ const Wishlist = (props) => {
         if (nwProps.open.wishlist.collapsed) {
             displayNone({ id: 'drawer1' })
             displayNone({ id: 'drawer2' })
+            displayNone({ id: 'drawer3' })
             nwProps.displayFull({ id: 'wishlist' })
         }
     }

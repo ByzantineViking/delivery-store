@@ -26,7 +26,7 @@
 }
 @media only screen and (max-width: 600px) {
     .emoji-button {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .x-button {
         /* Overriding the normal button size */

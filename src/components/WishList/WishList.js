@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
+import EmojiButton from '../EmojiButton/EmojiButton'
 const Wishlist = (props) => {
     const { wishlist, displayCollapsed, displayNone, ...nwProps } = props
     useEffect (() => {
@@ -12,6 +13,7 @@ const Wishlist = (props) => {
             displayNone({ id: 'wishlist' })
         }
     }, [wishlist, displayCollapsed, displayNone])
+
     const restaurantNames = () => {
         let holder = []
         Object.keys(wishlist).reduce((acc, key) =>
@@ -19,6 +21,7 @@ const Wishlist = (props) => {
         , '')
         return holder
     }
+
     const handleClick = () => {
         if (nwProps.open.wishlist.collapsed) {
             displayNone({ id: 'drawer1' })
@@ -26,18 +29,33 @@ const Wishlist = (props) => {
             nwProps.displayFull({ id: 'wishlist' })
         }
     }
+
+    const collapseWishlist = () => {
+        displayCollapsed({ id: 'wishlist' })
+        displayCollapsed({ id: 'drawer2' })
+        nwProps.displayFull({ id: 'drawer2' })
+    }
+
     return(
-        <div>
+        <div className='wishlist-remainder-when-hidden'>
             {!nwProps.open.wishlist.hidden && <div className="wishlist-container">
-                <h2>
-                    <span role="img" aria-label="Delicious">
-                        😋
-                    </span>
-                </h2>
+                <div className='title-bar'>
+                    <h2>
+                        <span role="img" aria-label="Delicious">
+                            😋
+                        </span>
+                    </h2>
+                    {nwProps.open.wishlist.full && <EmojiButton
+                        className='x-button'
+                        body='❌'
+                        alt='close-column'
+                        buttonAction={() => collapseWishlist()}
+                    />}
+                </div>
                 <div className="wishlist" onClick={handleClick}>
                     {nwProps.open.wishlist.full ?
                         <ExpandedWishlist /> :
-                        restaurantNames(wishlist).join()
+                        <div className='collapsed-wishlist'>{restaurantNames(wishlist).join()}</div>
                     }
                 </div>
             </div>}

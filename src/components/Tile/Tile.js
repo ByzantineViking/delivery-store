@@ -21,7 +21,6 @@ const Tile = (props) => {
         props.wish(props.restaurant)
         props.displayCollapsed({ id: 'wishlist' })
     }
-    console.log(props.currentDrawer)
     return (
         <div className='tile' id={props.currentDrawer}>
             <div className='image-background'>

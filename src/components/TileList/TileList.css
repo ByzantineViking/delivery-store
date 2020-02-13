@@ -1,10 +1,13 @@
 
+
+
 .tile-list-container {
     width: auto;
     height: auto;
     margin-left: 3%;
     margin-right: 3%;
 }
+
 .tile-column {
     display: flex;
     flex-direction: column;
@@ -46,9 +49,18 @@ form {
 .add-button-container {
     padding-top: 0;
 }
-@media only screen and (max-width: 600px) {
-    .tile-column {
-        margin: 2%;
+@media only screen and (max-width: 1600px) {
+    #drawer3.tile-list-container {
+        display: none;
+    }
+    .tile-list-container {
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #drawer2.tile-list-container {
+        display: none;
     }
     .filter {
         width: 100%;

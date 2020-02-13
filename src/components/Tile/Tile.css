@@ -1,12 +1,12 @@
 
 
-#drawer1 {
+#drawer1 .tile {
     background-color: var(--drawer1-color);
 }
-#drawer2 {
+#drawer2 .tile {
     background-color: var(--drawer2-color);
 }
-#drawer3 {
+#drawer3 .tile {
     background-color: var(--drawer3-color);
 }
 .tile {

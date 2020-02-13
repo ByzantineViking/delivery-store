@@ -7,17 +7,11 @@ import uuidv1 from 'uuid/v1'
 
 import { orderDrawers } from '../../reducers/orderingReducer'
 import { setFilter } from '../../reducers/filterReducer'
+import { displayCollapsed, displayFull } from '../../reducers/visibilityReducer'
 /**
  * Column of tiles
  * @param {json}          restaurants         - Data about the restaurants.
  * @param {number}        id                  - Column number
- * @param {boolean}       visibility          - Is this column visible?
- * @param {function}      setList1Visibility  - State hook setting the first column visibility
- * @param {function}      setList2Visibility  - State hook setting the second column visibility
- * @param {string}        filter              - Filter the column by tags or restaurant name
- * @param {function}      setFilter           - State hook setting the filter
- * @param {boolean}       alphabetical        - Is the column sorted alphabetically or reverse
- * @param {array[string]} tags                - An array of unique tags
  */
 const TileList = (props) => {
     const handleChange = (event) => {
@@ -44,6 +38,12 @@ const TileList = (props) => {
             return 1
         }
     }
+    const openDrawer = () => {
+        props.displayFull({ id:`drawer${props.id}` })
+    }
+    const collapseDrawer = () => {
+        props.displayCollapsed({ id: `drawer${props.id}` })
+    }
     return(
         <div className='tile-list-container'>
             {props.open[`drawer${props.id}`].collapsed && <div className='add-button-container'>
@@ -51,7 +51,7 @@ const TileList = (props) => {
                     className='add-button'
                     body='➕'
                     alt='close-column'
-                    buttonAction={() => console.log('open drawers')}
+                    buttonAction={() => openDrawer()}
                 />
             </div>}
 
@@ -70,7 +70,7 @@ const TileList = (props) => {
                             className='x-button'
                             body='❌'
                             alt='close-column'
-                            buttonAction={() => console.log('close drawers')}
+                            buttonAction={() => collapseDrawer()}
                         />
                     </div>
                 </div>
@@ -116,6 +116,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
     setFilter,
-    orderDrawers
+    orderDrawers,
+    displayFull,
+    displayCollapsed
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TileList)

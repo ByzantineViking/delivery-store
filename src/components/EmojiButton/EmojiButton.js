@@ -9,5 +9,4 @@ const EmojiButton = (props) => {
     )
 }
 
-
 export default EmojiButton

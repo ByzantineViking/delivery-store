@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 import './Wishlist.css'
 import ExpandedWishlist from './ExpandedWishlist'
-const Wishlist = (props) => {
+const WishList = (props) => {
+    useEffect (() => {
+        if (props.wishlist.length > 0) {
+            props.displayCollapsed({ id: 'wishlist' })
+        } else {
+            props.displayNone({ id: 'wishlist' })
+        }
+    }, [props.wishlist])
     const restaurantNames = () => {
         let holder = []
         Object.keys(props.wishlist).reduce((acc, key) =>

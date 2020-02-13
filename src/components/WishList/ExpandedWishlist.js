@@ -1,15 +1,13 @@
 import React from 'react'
 import WishlistTile from './WishlistTile'
 import uuidv1 from 'uuid/v1'
+import { connect } from 'react-redux'
 
 const ExpandedWishlist = (props) => {
     return(
         <div className="expanded-wishlist">
-            {props.wishlistContent.map(restaurant =>
+            {props.wishlist.map(restaurant =>
                 <WishlistTile
-                    setWish={props.setWish}
-                    setOrder={props.setOrder}
-                    wishlistContent={props.wishlistContent}
                     key={uuidv1()}
                     restaurant={restaurant}
                 />
@@ -17,5 +15,9 @@ const ExpandedWishlist = (props) => {
         </div>
     )
 }
-
-export default ExpandedWishlist
+const mapStateToProps = (state) => {
+    return {
+        wishlist: state.wishlist
+    }
+}
+export default connect(mapStateToProps)(ExpandedWishlist)

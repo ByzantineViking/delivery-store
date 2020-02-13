@@ -1,13 +1,16 @@
 
 .tile-list-container {
-    width: 35%;
+    width: auto;
+    height: auto;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 .tile-column {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 340px;
-    height: min-content;
+    height: 100%;
     justify-content: space-evenly;
 
 }

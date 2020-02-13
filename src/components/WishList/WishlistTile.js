@@ -3,7 +3,7 @@ import './Wishlist.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 import { connect } from 'react-redux'
 import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
-import { wish, deleteWish, orderFood } from '../../reducers/choiceReducers'
+import { wish, deleteWish, orderFood } from '../../reducers/choiceReducer'
 /**
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.

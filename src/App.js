@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import './base.css'
 import './App.css'
 import { connect } from 'react-redux'
-import { setTags } from './reducers/tagReducer'
+import { setTags  } from './reducers/tagReducer'
 import TileList from './components/TileList/TileList'
 // Note: Wishlist not WishList
 import Wishlist from './components/Wishlist/Wishlist'
@@ -11,29 +11,34 @@ import Order    from './components/Order/Order'
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
  */
-const App = (props) => {
-    const { restaurants: r, setTags } = props
+const App = ({ restaurants, setTags }) => {
+    // Setting tags initially
     useEffect( () => {
         let holder = []
-        Object.keys(r.restaurants).reduce((acc, key) =>
-            holder = holder.concat(r.restaurants[key].tags[0])
+        Object.keys(restaurants.restaurants).reduce((acc, key) =>
+            holder = holder.concat(restaurants.restaurants[key].tags[0])
         )
         setTags([...new Set(holder)])
-    }, [r.restaurants, setTags])
+    }, [restaurants, setTags])
+
     return (
         <div className="container">
             <Order/>
             <Wishlist
-                restaurants={r}
+                restaurants={restaurants}
             />
             <div className="tile-lists-container">
                 <TileList
                     id={1}
-                    restaurants={r}
+                    restaurants={restaurants}
                 />
                 <TileList
                     id={2}
-                    restaurants={r}
+                    restaurants={restaurants}
+                />
+                <TileList
+                    id={3}
+                    restaurants={restaurants}
                 />
             </div>
         </div>

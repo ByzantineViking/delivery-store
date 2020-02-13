@@ -3,19 +3,18 @@ import './Wishlist.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 import { connect } from 'react-redux'
 import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
+import { wish, deleteWish, orderFood } from '../../reducers/choiceReducers'
 /**
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
  */
-const WishlistTile = (props) => {
+const WishlistTile =  (props) => {
     const handleOrder = () => {
-        props.setOrder(props.restaurant)
-        props.setWish([props.restaurant])
-
+        props.orderFood(props.restaurant)
+        props.deleteWish(props.restaurant)
         props.displayFull({ id: 'order' })
         props.displayCollapsed({ id: 'drawer1' })
         props.displayNone({ id: 'drawer2' })
-        props.displayCollapsed({ id: 'wishlist' })
     }
     return (
         <div id='wishlist' className='tile'>
@@ -45,13 +44,17 @@ const WishlistTile = (props) => {
 }
 const mapStateToProps = (state) => {
     return {
-        open: state.open
+        open: state.open,
+        wishlist: state.wishlist
     }
 }
 const mapDispatchToProps = {
     displayFull,
     displayCollapsed,
-    displayNone
+    displayNone,
+    wish,
+    orderFood,
+    deleteWish,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WishlistTile)

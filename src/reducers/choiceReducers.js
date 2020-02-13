@@ -28,22 +28,28 @@ const initialState = {
         wishlist: visibility.HIDDEN,
         order: visibility.HIDDEN,
     },
-    wishlistContent: [],
+    wishlist: [],
     foodOrder: [],
 }
 
 export const wish = (restaurant) => {
     return {
         type: 'WISH',
-        data: {
-            wish: restaurant
-        }
+        data: restaurant
     }
 }
-export const wishReducer = (state = initialState.wishlistContent, action) => {
+export const deleteWish = (restaurant) => {
+    return {
+        type: 'UNWISH',
+        data: restaurant
+    }
+}
+export const wishReducer = (state = initialState.wishlist, action) => {
     switch (action.type) {
         case 'WISH':
-            return state.wishlist.concat(action.data.wish)
+            return state.concat(action.data)
+        case 'UNWISH':
+            return state.filter(restaurant => restaurant.name !== action.data.name)
         default:
             return state
     }
@@ -59,7 +65,7 @@ export const orderFood = (restaurant) => {
 export const orderFoodReducer = (state = initialState.foodOrder, action) => {
     switch (action.type) {
         case 'ORDER_FOOD':
-            return state.order.concat(action.data.order)
+            return state.concat(action.data.order)
         default:
             return state
     }

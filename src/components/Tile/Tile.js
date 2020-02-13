@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import './Tile.css'
 import EmojiButton from '../EmojiButton/EmojiButton'
 
-import { orderFood, wish } from '../../reducers/choiceReducers'
+import { orderFood, wish, deleteWish } from '../../reducers/choiceReducers'
+import { displayCollapsed, displayFull, displayNone } from '../../reducers/visibilityReducer'
 /**
  * App components performs data handling
  * @param {json} restaurants - Data about the restaurants.
@@ -11,7 +12,14 @@ import { orderFood, wish } from '../../reducers/choiceReducers'
 const Tile = (props) => {
     const handleOrder = () => {
         props.orderFood(props.restaurant)
-        props.wish([props.restaurant])
+        props.deleteWish(props.restaurant)
+        props.displayFull({ id: 'order' })
+        props.displayCollapsed({ id: 'drawer1' })
+        props.displayNone({ id: 'drawer2' })
+    }
+    const handleWish = () => {
+        props.wish(props.restaurant)
+        props.displayCollapsed({ id: 'wishlist' })
     }
     return (
         <div className='tile'>
@@ -21,7 +29,7 @@ const Tile = (props) => {
                     className='wishlist-button'
                     body='🤔'
                     alt='wishlist'
-                    buttonAction={() => props.wish(props.wishlistContent.concat(props.restaurant))}
+                    buttonAction={() => handleWish()}
                 />
             </div>
             <div className='divider'/>
@@ -50,10 +58,15 @@ const mapStateToProps = (state) => {
     return {
         filter: state.filter,
         tags: state.tags,
+        wishlist: state.wishlist
     }
 }
 const mapDispatchToProps = {
     wish,
-    orderFood
+    deleteWish,
+    orderFood,
+    displayCollapsed,
+    displayFull,
+    displayNone
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Tile)

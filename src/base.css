@@ -6,8 +6,10 @@ html {
     box-sizing: border-box;
     width: 100%;
     --primary: #3498db;
-    --secondary: #f06449;
     --rich-black: #080f0f;
+    --drawer1-color: #f06449;
+    --drawer2-color: #FFFD98;
+    --drawer3-color: #C7EFCF;
 
 }
 #root {

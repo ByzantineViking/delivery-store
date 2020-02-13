@@ -1,6 +1,14 @@
 
 
-
+#drawer1 {
+    background-color: var(--drawer1-color);
+}
+#drawer2 {
+    background-color: var(--drawer2-color);
+}
+#drawer3 {
+    background-color: var(--drawer3-color);
+}
 .tile {
     --border-width: 0.25em;
 
@@ -10,7 +18,7 @@
     max-width: 350px;
     margin-bottom: 4em;
 
-    background-color: var(--secondary);
+    
     color: var(--rich-black);
     -webkit-box-shadow: 11px 11px 0px 1px var(--rich-black);
     -moz-box-shadow: 11px 11px 0px 1px var(--rich-black);

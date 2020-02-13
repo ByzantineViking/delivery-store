@@ -14,11 +14,12 @@ import { displayCollapsed, displayFull, displayNone } from '../../reducers/visib
  * @param {number}        id                  - Column number
  */
 const TileList = (props) => {
+    const currentDrawer = `drawer${props.id}`
     const handleChange = (event) => {
-        props.setFilter(event.target.value)
+        props.setFilter({ id: props.id, filter: event.target.value })
     }
     const setSorting = () => {
-        const command = props.drawerOrders[`drawer${props.id}`]
+        const command = props.drawerOrders[currentDrawer]
         if (command === 'alphabetically-ascending') {
             return 'DESCENDING'
         } else if (command === 'alphabetically-descending') {
@@ -28,7 +29,7 @@ const TileList = (props) => {
         }
     }
     const sortDrawer = (a, b) => {
-        const sorting = props.drawerOrders[`drawer${props.id}`]
+        const sorting = props.drawerOrders[currentDrawer]
         if (sorting === 'alphabetically-ascending') {
             return (a[1].name < b[1].name) ? 1 : -1
         } else if (sorting === 'alphabetically-descending') {
@@ -39,7 +40,7 @@ const TileList = (props) => {
         }
     }
     const openDrawer = () => {
-        props.displayFull({ id: `drawer${props.id}` })
+        props.displayFull({ id: currentDrawer })
         if(props.id === 1) {
             props.displayCollapsed({ id: 'drawer2' })
         } else if (props.id === 2) {
@@ -47,7 +48,7 @@ const TileList = (props) => {
         }
     }
     const collapseDrawer = () => {
-        props.displayCollapsed({ id: `drawer${props.id}` })
+        props.displayCollapsed({ id: currentDrawer })
         if (props.id === 2) {
             props.displayNone({ id: 'drawer3' })
         } else if (props.id === 1) {
@@ -56,7 +57,7 @@ const TileList = (props) => {
     }
     return(
         <div className='tile-list-container'>
-            {props.open[`drawer${props.id}`].collapsed && <div className='add-button-container'>
+            {props.open[currentDrawer].collapsed && <div className='add-button-container'>
                 <EmojiButton
                     className='add-button'
                     body='➕'
@@ -66,7 +67,7 @@ const TileList = (props) => {
             </div>}
 
 
-            {props.open[`drawer${props.id}`].full && <div className='tile-column'>
+            {props.open[currentDrawer].full && <div className='tile-column'>
                 <div className='title-bar'>
                     <h2>{props.id}</h2>
                     <div className='function-container'>
@@ -74,7 +75,7 @@ const TileList = (props) => {
                             className='sort-button'
                             body='↕️'
                             alt='sort'
-                            buttonAction={() => props.orderDrawers({ name: `drawer${props.id}`, ordering: setSorting() })}
+                            buttonAction={() => props.orderDrawers({ name: currentDrawer, ordering: setSorting() })}
                         />
                         <EmojiButton
                             className='x-button'
@@ -86,7 +87,7 @@ const TileList = (props) => {
                 </div>
                 <div className='control-bar'>
                     <form>
-                        <input list='tags' className='filter' placeholder='filter' type='text' value={props.filter.drawer1} onChange={handleChange} />
+                        <input list='tags' className='filter' placeholder='filter' type='text' value={props.filter[currentDrawer]} onChange={handleChange} />
                         <datalist id='tags' className='datalist'>
                             {props.tags.map(t =>
                                 t ? <option key={uuidv1()} value={t} /> : <div key={uuidv1()} />
@@ -98,11 +99,11 @@ const TileList = (props) => {
                 {Object.entries(props.restaurants.restaurants)
                     .filter((restaurant) =>
                         // Filter empty
-                        !props.filter.drawer1
+                        !props.filter[currentDrawer]
                         // Name contains filter
-                        || restaurant[1].name.toLowerCase().includes(props.filter.toLowerCase())
+                        || restaurant[1].name.toLowerCase().includes(props.filter[currentDrawer].toLowerCase())
                         // Tags contain filter
-                        || (restaurant[1].tags.length > 0 ? restaurant[1].tags.find(t => t.toLowerCase().includes(props.filter.drawer1.toLowerCase())) : false))
+                        || (restaurant[1].tags.length > 0 ? restaurant[1].tags.find(t => t.toLowerCase().includes(props.filter[currentDrawer].toLowerCase())) : false))
                     // Alphabetical order
                     .sort((a, b) => sortDrawer(a,b))
                     .map(([key, val]) =>

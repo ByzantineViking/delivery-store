@@ -21,8 +21,9 @@ const Tile = (props) => {
         props.wish(props.restaurant)
         props.displayCollapsed({ id: 'wishlist' })
     }
+    console.log(props.currentDrawer)
     return (
-        <div className='tile'>
+        <div className='tile' id={props.currentDrawer}>
             <div className='image-background'>
                 <img className='tile-image' alt='restaurant' src={props.restaurant.image}/>
                 <EmojiButton

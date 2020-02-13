@@ -108,6 +108,7 @@ const TileList = (props) => {
                     .sort((a, b) => sortDrawer(a,b))
                     .map(([key, val]) =>
                         <Tile
+                            currentDrawer={currentDrawer}
                             key={uuidv1()}
                             restaurant={val}
                         />

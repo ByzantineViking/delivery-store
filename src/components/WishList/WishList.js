@@ -33,7 +33,7 @@ const Wishlist = (props) => {
     const collapseWishlist = () => {
         displayCollapsed({ id: 'wishlist' })
         displayCollapsed({ id: 'drawer2' })
-        nwProps.displayFull({ id: 'drawer2' })
+        nwProps.displayFull({ id: 'drawer1' })
     }
 
     return(
